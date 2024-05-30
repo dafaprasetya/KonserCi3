@@ -1,0 +1,307 @@
+
+
+.intro-pic-mobile{
+    background-color: #02182c;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-image: url(../images/pe.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    filter: sepia(40%) grayscale(50%) drop-shadow(-20px -20px 0px rgb(23, 149, 207));
+}
+.intro-pic-mobile::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: .3;
+}
+@media screen and (max-width:1200px) {
+    .donothv{
+        display: none;
+    }
+    .intro-pic-mobile{
+        display: block;
+    }
+    .intro-text h1 {
+      font-size: 6rem;
+    }
+    
+    .intro-text br {
+      display: none;
+    }
+    .intro-pic{
+        display: none;
+    }
+    .intro-pic-smile{
+        display: none;
+    }
+    .info-facebook{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 5%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        
+    }
+      
+    .info-ig{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 15%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        
+    }
+    .info-linkedin{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 25%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+    }
+    .info-github{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 35%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+    }
+    .ingpo{
+        top: 80% !important;
+        text-align: center ;
+        align-items: center;
+        animation: keatas 1.5s linear;
+    }
+}
+@media screen and (max-width:800px) {
+    .donothv{
+        display: none;
+    }
+    .intro-pic-mobile{
+        display: block;
+    }
+    .intro-text h1 {
+      font-size: 6rem;
+    }
+    
+    .intro-text br {
+      display: none;
+    }
+    .intro-pic{
+        display: none;
+    }
+    .intro-pic-smile{
+        display: none;
+    }
+    .info-facebook{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 5%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        
+    }
+      
+    .info-ig{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 15%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        
+    }
+    .info-linkedin{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 25%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+    }
+    .info-github{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 35%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+    }
+    .ingpo{
+        top: 75% !important;
+        text-align: center ;
+        align-items: center;
+        animation: keatas 1.5s linear;
+    }
+}
+@media screen and (max-width:600px) {
+    .donothv{
+        display: none;
+    }
+    .intro-pic-mobile{
+        display: block;
+    }
+    .intro-text h1 {
+      font-size: 6rem;
+    }
+    
+    .intro-text br {
+      display: none;
+    }
+    .intro-pic{
+        display: none;
+    }
+    .intro-pic-smile{
+        display: none;
+    }
+    .info-facebook{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 10%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        
+    }
+      
+    .info-ig{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 20%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        
+    }
+    .info-linkedin{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 30%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+    }
+    .info-github{
+        
+        width: 90px;
+        height: 50px;
+        position: absolute;
+        
+        left: 40%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+    }
+    .ingpo{
+        top: 75% !important;
+        text-align: center ;
+        align-items: center;
+        animation: keatas 1.5s linear;
+    }
+}
+
+
+@media screen and (max-width:460px){
+    #particles-js{
+        display: none;
+    }
+    .ingpo:hover{
+        transition: 0.5s;
+        box-shadow:none;
+    }
+    .ingpo{
+        width: 50px !important;
+        height: 50px !important;
+
+        border: none;
+    }
+    .info-facebook{
+        color: #ffffff;
+        width: 70px;
+        height: 40px;
+        position: absolute;
+        top: 75%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        background-color: transparent;
+        
+    }
+      
+    .info-ig{
+        color: #ffffff;
+        
+        width: 70px;
+        height: 40px;
+        position: absolute;
+        top: 75%;
+        margin-left: 10px;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        background-color: transparent;
+        
+    }
+    .info-linkedin{
+        color: #ffffff;
+        
+        width: 70px;
+        height: 40px;
+        position: absolute;
+        top: 75%;
+        margin-left: 20px;
+
+        left: 35%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        border-radius: 20px;
+    }
+    .info-github{
+        color: #ffffff;
+        
+        width: 70px;
+        height: 40px;
+        position: absolute;
+        top: 75%;
+        margin-left: 25px;
+
+        left: 45%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        border-radius: 20px;
+    }
+}
