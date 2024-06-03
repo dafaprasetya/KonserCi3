@@ -95,18 +95,21 @@ class Home extends CI_Controller {
 				'nomorTelp'=>$nomorTelp,
 			);
 			$this->ModelBooked->addBooked($data);
-			redirect('home/konser/'.$konserId);
+			redirect('home/bill/'.$this->session->userdata('userId'));
 		}else {
 			
 			redirect('home');
 		}
 	}
 	public function bill($userId) {
+		require './vendor/autoload.php';
+
 		if ($this->session->userdata('userId') != $userId) {
 			redirect('home');
 		}
 		$booked = $this->ModelBooked->getBill($userId);
-		
+		$generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+		// echo $generator->getBarcode('081231723897', $generator::TYPE_CODE_128);
 
 		foreach ($booked->result() as $bookeds) {
 			$konsers = $this->ModelKonser->detail($bookeds->konserId);
@@ -117,9 +120,26 @@ class Home extends CI_Controller {
 		$data = array(
 			'booked' => $booked,
 			'konser' => $konser,
+			'generator'=>$generator
 		);
 		
 		$this->load->view('booked', $data);
+	}
+	public function cart($userId) {
+		require './vendor/autoload.php';
+
+		if ($this->session->userdata('userId') != $userId) {
+			redirect('home');
+		}
+		$keranjang = $this->ModelKeranjang->cart($userId);
+		$generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+		// echo $generator->getBarcode('081231723897', $generator::TYPE_CODE_128);
+		$data = array(
+			'keranjang' => $keranjang,
+			'generator'=>$generator
+		);
+		
+		$this->load->view('keranjang', $data);
 	}
 	public function paymentSuccess($bookedId) {
 		$data = array(
@@ -151,6 +171,12 @@ class Home extends CI_Controller {
 		);
 		$this->ModelTiket->createTiket($transaction_id, $data);
 		$this->ModelBooked->success($idbooked, array('tiketId'=>$tiketId));
+	}
+	public function qrgenerate($ticketId) {
+		require './vendor/autoload.php';
+		// This will output the barcode as HTML output to display in the browser
+		$generator = new Picqer\Barcode\BarcodeGeneratorPNG();;
+		echo $generator->getBarcode('081231723897', $generator::TYPE_CODE_128);
 	}
 	public function token($bookedId){
 

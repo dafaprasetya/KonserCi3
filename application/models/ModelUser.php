@@ -34,11 +34,14 @@
                     $this->session->set_userdata('username', $data_user->username);
                     $this->session->set_userdata('email', $data_user->email);
                     $this->session->set_userdata('is_login', TRUE);
-                    return TRUE;
+                    if ($this->session->userdata('role') == 'administrator') {
+                        redirect('admin/dashboard');
+                    }
                 }else {
                     return FALSE;
                 }
             }else{
+                
                 return FALSE;
             }
         }

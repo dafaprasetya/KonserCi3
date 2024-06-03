@@ -64,10 +64,13 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/booked', $data);
 	}
 	public function tiket() {
+		$generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+
 		$tiket = $this->ModelTiket->getTiket();
 		// $booked = $this->ModelBooked->bayar();
 		$data = array(
 			'tiket' => $tiket,
+			'generator' => $generator
 			// 'booked' => $booked,
 		);
 		$this->load->view('admin/tiket', $data);

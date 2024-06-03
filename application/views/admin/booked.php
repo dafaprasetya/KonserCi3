@@ -118,7 +118,7 @@
                                                             <p>Nama Konser : <b><?php echo $row->namaKonser ?></b></p>
                                                             <p>ID user pemesan : <b><?php echo $row->userId ?></b></p>
                                                             <p>Nama User : <b><?php echo $row->userBooked ?></b></p>
-                                                            <p>Pemesan : <b><?php echo $row->namaPemesan ?> </b> no.Telp: <b><?php echo $row->nomorTelp ?></b></p>
+                                                            <p>Pemesan : <b><?php echo $row->namaPemesan ?> </b> no.Telp: <b> <a target="_blank" href="https://wa.me/<?php echo $row->nomorTelp ?>?>"><?php echo $row->nomorTelp ?></a> </b></p>
                                                             <p>Total Harga : <b><?php echo $row->totalHarga ?></b></p>
                                                             <p>Status : <b><?php echo $row->status ?></b></p>
                                                             <hr>

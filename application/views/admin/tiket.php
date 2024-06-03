@@ -104,12 +104,17 @@
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Booking Detail</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Ticket Detail</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
+                                                                    <div class="">
+                                                                        <img class="img-fluid" src="data:image/png;base64,<?php echo base64_encode($generator->getBarcode($booked->tiketId, $generator::TYPE_CODE_128)) ?>" style="height: 100px;" alt="" srcset="">
+
+                                                                    </div>
+
                                                                     <p>Tiket Id : <b><?php echo $booked->tiketId ?></b></p>
                                                                     <hr>
                                                                     <p>Booked Id: <b><?php echo $booked->bookedId ?></b></p>
@@ -117,7 +122,7 @@
                                                                     <p>Nama Konser : <b><?php echo $booked->namaKonser ?></b></p>
                                                                     <p>ID user pemesan : <b><?php echo $booked->userId ?></b></p>
                                                                     <p>Nama User : <b><?php echo $booked->userBooked ?></b></p>
-                                                                    <p>Pemesan : <b><?php echo $booked->namaPemesan ?> </b> no.Telp: <b><?php echo $booked->nomorTelp ?></b></p>
+                                                                    <p>Pemesan : <b><?php echo $booked->namaPemesan ?> </b> no.Telp: <b> <a target="_blank" href="https://wa.me/<?php echo $booked->nomorTelp ?>?>"><?php echo $booked->nomorTelp ?></a> </b></p>
                                                                     <p>Total Harga : <b><?php echo $booked->totalHarga ?></b></p>
                                                                     <p>Status : <b><?php echo $booked->status ?></b></p>
                                                                     <hr>

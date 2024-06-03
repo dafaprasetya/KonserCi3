@@ -18,5 +18,13 @@
             );
             $this->db->insert('keranjang',$data);
         }
+        function cart($userId){
+            $keranjang = $this->db->get_where('keranjang', array('userId'=>$userId));
+            if ($keranjang->num_rows() > 0) {
+                return $keranjang;
+            }else {
+                redirect('home');
+            }
+        }
     }
 ?>

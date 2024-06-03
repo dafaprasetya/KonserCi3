@@ -25,6 +25,8 @@
         
         <div id="content" class="p-4 p-md-5">
             <h2 class="line-title mt-2">Bill</h2>
+            <p>apabila tiket yang telah di booking belum dibayarkan dalam waktu 24 jam, <b>booking akan terhapus otomatis</b> </p>
+            <hr>
             <div class="row">
                 <div class="col-md-9">
                     <div class="row justify-content-center">
@@ -97,14 +99,27 @@
                                                                     },
                                                                     onPending: function(result){
                                                                         console.log('pending');console.log(result);
-                                                                        $("#tombolBayar").html("Buka Kembali Pembayaran");
+                                                                        $(this).html("Buka Kembali Pembayaran");
                                                                     },
-                                                                    onError: function(result){console.log('error');console.log(result);},
-                                                                    onClose: function(){console.log('customer closed the popup without finishing the payment');}
+                                                                    onError: function(result){
+                                                                        console.log('error');console.log(result);
+                                                                        alert('terjadi kesalahan silahkan booking kembali tiket ');
+                                                                       
+                                                                    },
+                                                                    onClose: function(){
+                                                                        console.log('customer closed the popup without finishing the payment');
+                                                                        $("#tombolBayar<?php echo $tambah ?>").html("buka kembali pembayaran");
+                                                                        snap.hide();
+                                                                        $('#tombolBayar<?php echo $tambah ?>').click(function (e){
+                                                                            snap.show()
+                                                                        })
+                                                                    }
                                                                 })
                                                                 // console.log(response.responseJSON['snapToken']);
                                                             },error: function(response){
                                                                 console.log('error');
+                                                                alert('terjadi kesalahan silahkan booking kembali tiket ');
+
                                                             }
                                                         })
                                                     })
@@ -112,9 +127,36 @@
                                             </script>
                                            
                                             <?php }else { ?>
-                                                <a class="text-light btn btn-primary btn-md">Lihat Tiket</a> 
-                                            
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?php echo $tambah ?>">
+                                                Lihat Tiket
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal<?php echo $tambah ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">TIKET</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <img src="data:image/png;base64,<?php echo base64_encode($generator->getBarcode($booked->tiketId, $generator::TYPE_CODE_128)) ?>" height="100" alt="" srcset="">
+                                                        <p class="text-center"><b><?php echo $booked->tiketId ?></b></p>
+                                                        <hr>
+                                                        <p>transaction id : <?php echo $booked->transaction_id ?></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                        
                                         <?php } ?>
+
                                     </div>
                                 </div>
                             </div>        
